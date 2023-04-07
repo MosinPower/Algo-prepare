@@ -52,6 +52,18 @@ public class MergeRangesTest {
     }
 
 
+    @Test
+    void test2() {
+        List<Tuple> input = Arrays.asList(new Tuple(1,1), new Tuple(1,3), new Tuple(100,200), new Tuple(2,4));
+
+        List<Tuple> merge = merge(input);
+        System.out.println(merge);
+        assertEquals(2, merge.size());
+
+
+    }
+
+
 
     class Tuple {
         int left;
