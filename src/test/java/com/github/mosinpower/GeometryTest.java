@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Дан массив точек с целочисленными координатами (x, y). 1,1
@@ -37,8 +38,14 @@ public class GeometryTest {
         }
 
         return withoutPair.isEmpty();
-    }
+    }//3,1 5,1 3,2
 
+
+    @Test
+    void test0() {
+        List<Tuple> input = Arrays.asList(new Tuple(-10, 1), new Tuple(10, 1));
+        assertTrue(isToBeSimetry(input));
+    }
 
     @Test
     void test1() {
