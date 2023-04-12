@@ -17,6 +17,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SubIntervalTest {
 
 
+    public int betterLongestSubarray(int[] a) {
+        int count = 0, n = a.length, ans = 0, pref = 0, suff = 0;
+        for (int i : a) {
+            if (i == 1) count++;
+        }
+
+        if (count == n || count == n - 1) return n - 1;
+
+        for (int i : a) {
+            if (i == 1) {
+                suff++;
+            } else {
+                ans = Math.max(ans, pref + suff);
+                pref = suff;
+                suff = 0;
+            }
+        }
+
+        return Math.max(ans, pref + suff);
+    }
     private int maxLenOf1WithOneDeletion(int[] nums) {
         List<Integer> list = new ArrayList<>();
         int prev = nums[0];
