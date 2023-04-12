@@ -48,7 +48,6 @@ public class MaximizeDistanceToClosestPersonTest {
                 fromFirstMaxSeat++;
             }
         }
-
         int fromLastMaxSeat = 0;
         if(seats[seats.length - 1] == 0) {
             for (int i = seats.length -1; i >= 0; i--) {
