@@ -17,21 +17,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SubIntervalTest {
 
 
-    private int maxLenOf1WithOneDeletion(int[] arr1) {
+    private int maxLenOf1WithOneDeletion(int[] nums) {
         List<Integer> list = new ArrayList<>();
-        int prev = arr1[0];
-        for (int i = 1; i < arr1.length; i++) {
-            int cur = arr1[i];
+        int prev = nums[0];
+        boolean hasZeros = false;
+        for (int i = 1; i < nums.length; i++) {
+            int cur = nums[i];
             if(prev == 0 && cur == 0) {
                 list.add(prev);
+                hasZeros = true;
             } else if(prev == 0 && cur == 1) {
                 list.add(prev);
                 prev = cur;
+                hasZeros = true;
             } else if(prev != 0 && cur == 1) {
                 prev++;
             } else if(prev != 0 && cur == 0) {
                 list.add(prev);
                 prev = cur;
+                hasZeros = true;
             }
         }
         list.add(prev);
@@ -50,7 +54,7 @@ public class SubIntervalTest {
             maxLengths.add(cur1 + cur2 + cur3);
         }
 
-        return Collections.max(maxLengths);
+        return Collections.max(maxLengths) - (hasZeros? 0 : 1);
     }
 
 
